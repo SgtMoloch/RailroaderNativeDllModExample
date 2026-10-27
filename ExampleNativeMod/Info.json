@@ -1,0 +1,11 @@
+{
+  "identifier": "example/native-dll-mod",
+  "version": "__MOD_VERSION__",
+  "name": "Native DLL Mod Example",
+  "author": "Example Author",
+  "description": "Simple example showing native lifecycle, Harmony, host-only runtime, and a custom window.",
+  "assemblies": ["__ASSEMBLY_NAME__.dll"],
+  "dependencies": {
+    "required": ["rr/game >=0.6.0"]
+  }
+}

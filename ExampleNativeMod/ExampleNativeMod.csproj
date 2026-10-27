@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ExampleNativeMod</AssemblyName>
+    <RootNamespace>ExampleNativeMod</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <GameAssembly Include="Railroader.Modding" />
+    <GameAssembly Include="Railroader" />
+    <GameAssembly Include="UnityEngine.CoreModule" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- NuGet-managed; 0Harmony.dll ships alongside this mod, never into Managed. -->
+    <PackageReference Include="Lib.Harmony" Version="2.4.3" GeneratePathProperty="true" />
+  </ItemGroup>
+</Project>
