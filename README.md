@@ -10,9 +10,9 @@ It's intentionally more than an empty DLL. It shows the native entry point, worl
 
 1. Copy `Paths.user.example` to `Paths.user` in the repository root.
 2. Edit `GameDir` to the folder containing `Railroader.exe`. The targets look for `Railroader_Data\Managed` beneath it. Override `GameManagedDir` if your game layout is different.
-3. In PowerShell, run `dotnet restore .\ExampleNativeMod.sln`.
-4. Run `powershell -ExecutionPolicy Bypass -File .\scripts\Build.ps1 -Configuration Debug`.
-5. Enable **Preferences > Features > Experimental > Allow Unsafe DLL Mods** in Railroader and restart the game. Development packs are loaded from `Documents\Railroader\ModDev` (or the actual redirected Documents folder).
+3. Open the folder in VSCode or double click the `ExampleNativeMod.sln` to open in the default IDE (usually Visual Studio).
+   If prompted, click `Trust the folder`.
+4. Enable **Preferences > Features > Experimental > Allow Unsafe DLL Mods** in Railroader and restart the game. Development packs are loaded from `Documents\Railroader\ModDev` (or the actual redirected Documents folder).
 
 The Debug target deploys to `Documents\Railroader\ModDev\ExampleNativeMod` and prints the exact path. The build first renders the manifest into `ExampleNativeMod/bin/Debug/Info.json`, then copies that generated file to `ModDev`. The source `ExampleNativeMod/Info.json` deliberately keeps its placeholders. You can override `NativeModDevDir` in `Paths.user`.
 
@@ -24,7 +24,7 @@ The Debug target deploys to `Documents\Railroader\ModDev\ExampleNativeMod` and p
 - `Windows/ExampleWindow.cs` uses `WindowManager` / `CustomWindowDefinition` to open a native informational window the first time a car is inspected in a world. Remove `ExampleWindow.ShowOnce()` from the patch if you don't want that popup.
 - There is no UMM settings implementation. Use whatever settings approach suits your mod.
 
-Note: `OnWorldLoad` fires on **every peer**. This example only creates its gameplay runtime if `StateManager.IsHost` is true, and also guards its `Update()` method. It intentionally **does not** implement host migration mid-session.
+Note: `OnWorldLoad` fires on **every peer**. This example only creates its gameplay runtime if `StateManager.IsHost` is true, and also guards its `Update()` method.
 
 ## Release
 
