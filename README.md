@@ -59,8 +59,8 @@ For a build without deploying or publishing, add `-NoDeploy` to `Build.ps1`, or 
 - Change the version in `Directory.Build.props` (`<Version>0.1.0</Version>`).
 - Change the DLL name/path checked by `Check-Release.ps1` if you rename the project.
 - Replace the inspector example patch with your own code, and remove the demo window/runtime if you don't need them.
-- Keep `Railroader.Modding` as your entry-point reference; other game APIs (such as the inspector and `StateManager`) are not a stable supported interface and may change in later game releases.
-- Update the `rr/game` minimum version when compiling against newer game builds.
+- Keep `ModEntryPoint` as your entry-point reference; other game APIs (such as the inspector and `StateManager`) are not a stable supported interface and may change in later game releases. Feel free to rename as you see fit. If you do change the name, make sure to update the Info.json with the new name.
+- Update the `rr/game` minimum version when compiling against newer game builds. (DO NOT add a space after the conditional. `"required": ["rr/game >=0.6.0"]` is correct; `"required": ["rr/game >= 0.6.0"]` is incorrect and the game will throw an error. This may or may not be fixed in the future, but for now, forewarning.
 
 ## Files
 
